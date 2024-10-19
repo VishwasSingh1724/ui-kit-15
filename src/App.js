@@ -112,5 +112,21 @@ const Table = ({ data, columns, sortByColumn }) => {
     );
   };
 
+const LoadingSpinner =({size=40,color='dodgerblue'})=>{
+  return(
+    <div
+    className="loading-spinner"
+    style={{
+      width:size,
+      height:size,
+      border:`4px solid ${color}`,
+      borderTop:`4px solid transparent`
+    }}
+    >
 
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle};
+    </div>
+  )
+}
+
+
+export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner};
