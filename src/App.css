@@ -214,40 +214,37 @@
 }
 
 /* Dropdown */
+
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-btn {
-  padding: 10px 20px;
-  background-color: #007bff;
+.dropdown-toggle {
+  padding: 10px;
+  background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .dropdown-menu {
+  display: none;
   position: absolute;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  list-style: none;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 .dropdown-menu li {
-  padding: 10px;
+  padding: 8px 16px;
   cursor: pointer;
 }
 
 .dropdown-menu li:hover {
-  background-color: #f1f1f1;
+  background-color: #ddd;
 }
 
 /* Accordion */
