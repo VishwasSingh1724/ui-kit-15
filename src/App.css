@@ -181,3 +181,119 @@
     transform:rotate(360deg)
   }
 }
+
+
+/* Card */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  margin: 15px;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-content {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Accordion */
+.accordion-item {
+  margin-bottom: 10px;
+}
+
+.accordion-toggle {
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 10px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+/* Tabs */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.tab-btn.active {
+  border-bottom: 2px solid #007bff;
+  font-weight: 600;
+}
+
+.tabs-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}

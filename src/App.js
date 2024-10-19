@@ -129,4 +129,91 @@ const LoadingSpinner =({size=40,color='dodgerblue'})=>{
 }
 
 
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner};
+const Card = ({ title, image, children }) => {
+  return (
+    <div className="card">
+      {image && <img src={image} alt="Card" className="card-img" />}
+      <div className="card-body">
+        <h3 className="card-title">{title}</h3>
+        <div className="card-content">{children}</div>
+      </div>
+    </div>
+  );
+};
+
+
+const Dropdown = ({ options, onSelect, label }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (option) => {
+    onSelect(option);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="dropdown">
+      <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
+        {label} ▼
+      </button>
+      {isOpen && (
+        <ul className="dropdown-menu">
+          {options.map((option, index) => (
+            <li key={index} onClick={() => handleSelect(option)}>
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+
+
+const Accordion = ({ items }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
+
+  return (
+    <div className="accordion">
+      {items.map((item, index) => (
+        <div key={index} className="accordion-item">
+          <button onClick={() => handleToggle(index)} className="accordion-toggle">
+            {item.title}
+          </button>
+          {activeIndex === index && <div className="accordion-content">{item.content}</div>}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Tabs = ({ tabs }) => {
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
+
+  return (
+    <div className="tabs">
+      <div className="tabs-header">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.title}
+          </button>
+        ))}
+      </div>
+      <div className="tabs-content">
+        {tabs.map((tab) => (
+          activeTab === tab.id && <div key={tab.id} className="tab-content">{tab.content}</div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner,Card,Dropdown,Accordion,Tabs};
