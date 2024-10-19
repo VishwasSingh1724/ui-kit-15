@@ -17,34 +17,24 @@ const Button = ({ children, onClick, size = 'medium', variant = 'primary', loadi
 
 
 
-const Modal = ({ isOpen, onClose, title, children }) => {
-    useEffect(() => {
-      const handleEsc = (event) => {
-        if (event.key === 'Escape') {
-          onClose();
-        }
-      };
-      window.addEventListener('keydown', handleEsc);
-      return () => window.removeEventListener('keydown', handleEsc);
-    }, [onClose]);
-  
-    if (!isOpen) return null;
-  
-    return (
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h2>{title}</h2>
-            <button className="modal-close" onClick={onClose}>
-              &times;
-            </button>
-          </div>
-          <div className="modal-body">{children}</div>
-        </div>
-      </div>
-    );
-  };
 
+const Modal = ({ isOpen, onClose, title, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <h2>{title}</h2>
+          <button className="modal-close" onClick={onClose}>
+            &times;
+          </button>
+        </div>
+        <div className="modal-body">{children}</div>
+      </div>
+    </div>
+  );
+};
   const DarkModeToggle = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   
@@ -98,20 +88,15 @@ const Table = ({ data, columns, sortByColumn }) => {
 
 
   const Tooltip = ({ content, position = 'top', children }) => {
-    const [visible, setVisible] = useState(false);
-  
     return (
-      <div
-        className="tooltip-container"
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-      >
+      <div className="tooltip-container">
         {children}
-        {visible && <div className={`tooltip tooltip-${position}`}>{content}</div>}
+        <div className={`tooltip tooltip-${position}`}>
+          {content}
+        </div>
       </div>
     );
   };
-
 const LoadingSpinner =({size=40,color='dodgerblue'})=>{
   return(
     <div
@@ -142,32 +127,59 @@ const Card = ({ title, image, children }) => {
 };
 
 
-const Dropdown = ({ options, onSelect, label }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Input = ({ type = 'text', placeholder, value, onChange }) => {
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      className="input"
+    />
+  );
+};
 
-  const handleSelect = (option) => {
-    onSelect(option);
-    setIsOpen(false);
+
+const Dropdown = ({ options, onSelect, label }) => {
+  let dropdownRef = React.createRef();
+
+  const handleSelect = (value) => {
+    onSelect(value);
+    dropdownRef.current.style.display = 'none'; // Hide dropdown after selection
+  };
+
+  const toggleDropdown = () => {
+    const dropdown = dropdownRef.current;
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
   };
 
   return (
     <div className="dropdown">
-      <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
-        {label} ▼
+      <button onClick={toggleDropdown} className="dropdown-toggle">
+        {label}
       </button>
-      {isOpen && (
-        <ul className="dropdown-menu">
-          {options.map((option, index) => (
-            <li key={index} onClick={() => handleSelect(option)}>
-              {option}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul ref={dropdownRef} className="dropdown-menu">
+        {options.map((option, index) => (
+          <li key={index} onClick={() => handleSelect(option)}>
+            {option}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
+
+const Alert = ({ message, type = 'info', onClose }) => {
+  return (
+    <div className={`alert alert-${type}`}>
+      {message}
+      <button className="alert-close" onClick={onClose}>
+        &times;
+      </button>
+    </div>
+  );
+}
 
 
 const Accordion = ({ items }) => {
@@ -216,4 +228,13 @@ const Tabs = ({ tabs }) => {
   );
 };
 
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner,Card,Dropdown,Accordion,Tabs};
+const Badge = ({ text, variant = 'primary' }) => {
+  return (
+    <span className={`badge badge-${variant}`}>
+      {text}
+    </span>
+  );
+};
+
+
+export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
