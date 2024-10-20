@@ -8,6 +8,10 @@ module.exports={
     filename:"main.js",
     libraryTarget:"commonjs"
  },
+ externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
  module:{
     rules:[{
         test:/\.jsx?$/,

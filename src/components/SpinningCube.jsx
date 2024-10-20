@@ -1,13 +1,13 @@
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useRef, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 const SpinningCube = ({ size = 1, color = 'hotpink', speed = 0.01 }) => {
   // A simple cube that spins continuously
   const Cube = () => {
-    const cubeRef = React.useRef();
+    const cubeRef = useRef();
     
-    React.useFrame(() => {
+    useFrame(() => {
       if (cubeRef.current) {
         cubeRef.current.rotation.x += speed;
         cubeRef.current.rotation.y += speed;
