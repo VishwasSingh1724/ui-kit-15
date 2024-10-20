@@ -12,9 +12,10 @@ import Tabs from './components/Tabs.jsx';
 import Input from './components/Input.jsx';
 import Badge from './components/Badge.jsx';
 import Alert from './components/Alert.jsx';
+import SpinningCube from './components/SpinningCube.jsx';
 
 
 
 
 //exporting all the components
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
+export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
