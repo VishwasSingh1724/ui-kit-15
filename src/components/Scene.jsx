@@ -25,7 +25,7 @@ const Scene3D = () => {
         </Box>
 
         {/* Camera controls */}
-        <OrbitControls />
+        <OrbitControls  enableZoom={false} enablePan={true} enableRotate={true}/>
       </Suspense>
     </Canvas>
   );

@@ -1,7 +1,7 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Plane } from '@react-three/drei';
-import { MathUtils, BufferAttribute } from 'three';
+import { MathUtils, BufferGeometry, BufferAttribute } from 'three';
 
 const WaveDeformedPlane = () => {
   const planeRef = useRef();
@@ -26,6 +26,12 @@ const WaveDeformedPlane = () => {
     planeRef.current.geometry.attributes.position.needsUpdate = true;
   });
 
+  const geometry = useMemo(() => {
+    const geo = new BufferGeometry();
+    geo.setAttribute('position', new BufferAttribute(vertices, 3));
+    return geo;
+  }, [vertices]);
+
   return (
     <Plane 
       ref={planeRef} 
@@ -33,14 +39,7 @@ const WaveDeformedPlane = () => {
       rotation={[-Math.PI / 2, 0, 0]}
     >
       <meshPhongMaterial color="lightblue" side={2} />
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={101 * 101}
-          array={vertices}
-          itemSize={3}
-        />
-      </bufferGeometry>
+      <primitive object={geometry} />
     </Plane>
   );
 };

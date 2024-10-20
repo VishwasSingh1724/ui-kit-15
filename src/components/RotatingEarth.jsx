@@ -25,7 +25,7 @@ const RotatingEarth = () => {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={0.8} />
       <Earth />
-      <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
+      <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
     </Canvas>
   );
 };
