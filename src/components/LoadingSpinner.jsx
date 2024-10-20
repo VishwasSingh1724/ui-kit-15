@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef } from "react"
 
 const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
-  const [mounted, setMounted] = useState(false);
+  const mountedRef = useRef(false);
 
   useEffect(() => {
-    setMounted(true);
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
   }, []);
 
   return (
@@ -16,7 +19,7 @@ const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
         border: `4px solid ${color}`,
         borderTop: '4px solid transparent',
         borderRadius: '50%',
-        animation: mounted ? 'spin 1s linear infinite' : 'none'
+        animation: mountedRef.current ? 'spin 1s linear infinite' : 'none'
       }}
     >
     </div>
