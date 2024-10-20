@@ -1,6 +1,12 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div
       className="loading-spinner"
@@ -10,7 +16,7 @@ const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
         border: `4px solid ${color}`,
         borderTop: '4px solid transparent',
         borderRadius: '50%',
-        animation: 'spin 1s linear infinite'
+        animation: mounted ? 'spin 1s linear infinite' : 'none'
       }}
     >
     </div>
