@@ -1,15 +1,6 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 
 const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
-  const mountedRef = useRef(false);
-
-  useEffect(() => {
-    mountedRef.current = true;
-    return () => {
-      mountedRef.current = false;
-    };
-  }, []);
-
   return (
     <div
       className="loading-spinner"
@@ -19,7 +10,7 @@ const LoadingSpinner = ({ size = 40, color = 'dodgerblue' }) => {
         border: `4px solid ${color}`,
         borderTop: '4px solid transparent',
         borderRadius: '50%',
-        animation: mountedRef.current ? 'spin 1s linear infinite' : 'none'
+        animation: 'spin 1s linear infinite'
       }}
     >
     </div>
