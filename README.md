@@ -7,7 +7,7 @@ A comprehensive UI component library that provides a wide variety of components 
 ## Features
 
 - **Basic UI Components**: Buttons, Dropdowns, Alerts, Inputs, Tabs, etc.
-- **Advanced 3D Elements**: SpinningCube, WaveDeformedPlane, ColorSphere, RotatingEarth, and more.
+- **Advanced 3D Elements**: SpinningCube, ColorSphere, RotatingEarth, and more.
 - **Dark Mode Support**: Easily toggle between light and dark themes.
 - **Interactive UI Elements**: Accordion, Tooltip, Modal, and more.
 - **3D Graphics with React Three Fiber**: Provides stunning 3D components for your application.
