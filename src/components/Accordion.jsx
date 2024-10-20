@@ -1,24 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Accordion = ({ items }) => {
-    const [activeIndex, setActiveIndex] = useState(null);
-  
-    const handleToggle = (index) => {
-      setActiveIndex(index === activeIndex ? null : index);
-    };
-  
-    return (
-      <div className="accordion">
-        {items.map((item, index) => (
-          <div key={index} className="accordion-item">
-            <button onClick={() => handleToggle(index)} className="accordion-toggle">
-              {item.title}
-            </button>
-            {activeIndex === index && <div className="accordion-content">{item.content}</div>}
-          </div>
-        ))}
-      </div>
-    );
+  const handleToggle = (event) => {
+    const content = event.target.nextElementSibling;
+    const allContents = document.querySelectorAll('.accordion-content');
+    
+    allContents.forEach(item => {
+      if (item !== content) {
+        item.style.maxHeight = '0';
+      }
+    });
+
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
   };
-          
+
+  return (
+    <div className="accordion">
+      {items.map((item, index) => (
+        <div key={index} className="accordion-item">
+          <button onClick={handleToggle} className="accordion-toggle">
+            {item.title}
+          </button>
+          <div
+            className="accordion-content"
+            style={{
+              maxHeight: '0',
+              overflow: 'hidden',
+              transition: 'max-height 0.3s ease-out'
+            }}
+          >
+            {item.content}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default Accordion;

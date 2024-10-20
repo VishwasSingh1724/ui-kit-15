@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 const Button = ({ children, onClick, size = 'medium', variant = 'primary', loading = false, disabled = false, icon }) => {
-  const [state, setstate] = useState("hello")
-  
   return (
     <button
       className={`btn btn-${variant} btn-${size}`}
@@ -11,10 +8,9 @@ const Button = ({ children, onClick, size = 'medium', variant = 'primary', loadi
       disabled={loading || disabled}
     >
       {loading ? 'Loading...' : icon ? <span className="btn-icon">{icon}</span> : null}
-      {state}
+      {children}
     </button>
   );
 };
-
 
 export default Button;
