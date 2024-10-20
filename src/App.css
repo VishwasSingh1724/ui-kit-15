@@ -87,21 +87,18 @@
     margin-top: 10px;
   }
 
-  
   .tooltip-container {
     position: relative;
-    display: inline-block;
   }
   
   .tooltip {
     position: absolute;
-    background-color: #333;
+    background-color: black;
     color: white;
     padding: 5px;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 12px;
-    white-space: nowrap;
-    z-index: 100;
+    z-index: 10;
   }
   
   .tooltip-top {
@@ -115,19 +112,6 @@
     left: 50%;
     transform: translateX(-50%);
   }
-  
-  .tooltip-left {
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .tooltip-right {
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
 
   [data-theme="light"] {
     --background-color: white;
