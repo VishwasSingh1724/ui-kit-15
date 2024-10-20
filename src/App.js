@@ -13,9 +13,10 @@ import Input from './components/Input.jsx';
 import Badge from './components/Badge.jsx';
 import Alert from './components/Alert.jsx';
 import SpinningCube from './components/SpinningCube.jsx';
+import Scene3D from './components/Scene.jsx';
 
 
 
 
 //exporting all the components
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
+export  {Button ,Scene3D,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
