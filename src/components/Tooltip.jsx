@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Tooltip.css';
+
 
 const Tooltip = ({ content, position = 'top', children }) => {
   return (
