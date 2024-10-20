@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
-
+import React, { useRef } from 'react';
 
 const Table = ({ data, columns, sortByColumn }) => {
-  const [sortCol, setSortCol] = useState(null);
+  const tableRef = useRef(null);
 
   const handleSort = (col) => {
-    setSortCol(col);
     if (sortByColumn) {
       sortByColumn(col);
+    }
+    
+    if (tableRef.current) {
+      const headers = tableRef.current.querySelectorAll('th');
+      headers.forEach((header) => {
+        if (header.textContent.trim() === col) {
+          header.classList.add('sorted');
+        } else {
+          header.classList.remove('sorted');
+        }
+      });
     }
   };
 
   return (
-    <table className="responsive-table">
+    <table ref={tableRef} className="responsive-table">
       <thead>
         <tr>
           {columns.map((col) => (
             <th key={col} onClick={() => handleSort(col)}>
-              {col} {sortCol === col ? '▼' : ''}
+              {col}
             </th>
           ))}
         </tr>
@@ -34,4 +43,5 @@ const Table = ({ data, columns, sortByColumn }) => {
     </table>
   );
 };
+
 export default Table;
