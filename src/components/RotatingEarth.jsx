@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, useTexture, OrbitControls } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 
-const RotatingEarth = () => {
+const Earth = () => {
   const earthRef = useRef();
   const earthTexture = useTexture('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg');
 
@@ -13,12 +13,20 @@ const RotatingEarth = () => {
   });
 
   return (
-    <>
-      <Sphere ref={earthRef} args={[1.5, 64, 64]} position={[0, 0, 0]}>
-        <meshStandardMaterial map={earthTexture} />
-      </Sphere>
+    <Sphere ref={earthRef} args={[1.5, 64, 64]}>
+      <meshStandardMaterial map={earthTexture} />
+    </Sphere>
+  );
+};
+
+const RotatingEarth = () => {
+  return (
+    <Canvas camera={{ position: [0, 0, 5] }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={0.8} />
+      <Earth />
       <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-    </>
+    </Canvas>
   );
 };
 

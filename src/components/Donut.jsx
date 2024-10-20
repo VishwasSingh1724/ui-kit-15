@@ -1,5 +1,6 @@
-import { useRef } from '@react-three/fiber';
-import { Torus, Stars, useFrame, OrbitControls } from '@react-three/drei';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Torus, Stars, OrbitControls } from '@react-three/drei';
 
 const SpinningDonut = () => {
   const torusRef = useRef();
@@ -11,7 +12,9 @@ const SpinningDonut = () => {
   });
 
   return (
-    <>
+    <Canvas camera={{ position: [0, 0, 10] }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} />
       <group>
         {/* Spinning Torus */}
         <Torus ref={torusRef} position={[0, 0, 0]} args={[3, 0.5, 16, 100]}>
@@ -22,7 +25,7 @@ const SpinningDonut = () => {
         <Stars radius={20} depth={50} count={1000} factor={4} />
       </group>
       <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-    </>
+    </Canvas>
   );
 };
 
