@@ -34,5 +34,4 @@ const Table = ({ data, columns, sortByColumn }) => {
     </table>
   );
 };
-
 export default Table;

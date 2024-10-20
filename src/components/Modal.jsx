@@ -1,17 +1,8 @@
 import React, { useEffect } from 'react';
 import './Modal.css';
 
-const Modal = ({ isOpen, onClose, title, children }) => {
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
 
+const Modal = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -28,5 +19,6 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     </div>
   );
 };
+
 
 export default Modal;
