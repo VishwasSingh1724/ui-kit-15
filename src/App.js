@@ -17,4 +17,4 @@ import Alert from './components/Alert.jsx';
 
 
 //exporting all the components
-export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinner,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
+export  {Button ,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert};
