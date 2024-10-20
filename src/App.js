@@ -1,19 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import Button from './components/Button';
 import './App.css'; 
 
-const Button = ({ children, onClick, size = 'medium', variant = 'primary', loading = false, disabled = false, icon }) => {
-  return (
-    <button
-      className={`btn btn-${variant} btn-${size}`}
-      onClick={onClick}
-      disabled={loading || disabled}
-    >
-      {loading ? 'Loading...' : icon ? <span className="btn-icon">{icon}</span> : null}
-      {children}
-    </button>
-  );
-};
 
 
 
