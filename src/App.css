@@ -338,3 +338,6 @@
   font-size: 18px;
   cursor: pointer;
 }
+.waveyImageCanvas {
+  height: 100vh !important;
+}
