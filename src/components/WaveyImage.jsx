@@ -132,7 +132,7 @@ const Wave = ({ imageUrl }) => {
 };
 
 // Scene Component
-export const Scene = ({ imageUrl }) => {
+const WaveyImage = ({ imageUrl }) => {
   return (
     <Canvas className='waveyImageCanvas' camera={{ fov: 12, position: [0, 0, 5] }}>
       <Suspense fallback={null}>
@@ -142,3 +142,4 @@ export const Scene = ({ imageUrl }) => {
   );
 };
 
+export default WaveyImage

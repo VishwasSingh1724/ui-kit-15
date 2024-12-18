@@ -20,6 +20,6 @@ import ColorSphere from './components/ColorSphere.jsx';
 import BouncingBallsScene from './components/BouncingBalls.jsx';
 import RotatingEarth from './components/RotatingEarth.jsx';
 import Donut from './components/Donut.jsx';
-
+import WaveyImage from './components/WaveyImage.jsx';
 //exporting all the components
-export  {Button ,Scene3D,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert,WaveDeformedPlane,CubeWithMouse,ColorSphere,RotatingEarth,Donut,BouncingBallsScene};
+export  {Button ,Scene3D,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert,WaveDeformedPlane,CubeWithMouse,ColorSphere,RotatingEarth,Donut,BouncingBallsScene,WaveyImage};
