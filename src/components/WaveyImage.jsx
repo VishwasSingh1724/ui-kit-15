@@ -2,7 +2,6 @@ import React, { useRef, Suspense } from 'react';
 import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
-import './App.css';
 
 // Vertex Shader
 const vertexShader = `
