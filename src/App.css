@@ -339,5 +339,5 @@
   cursor: pointer;
 }
 .waveyImageCanvas {
-  height: 100vh !important;
+  min-height: 10vh !important;
 }
