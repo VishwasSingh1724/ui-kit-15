@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import React,{ useRef, useEffect, useState } from 'react';
 import {  Vector2 } from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera , RoundedBox} from '@react-three/drei';
