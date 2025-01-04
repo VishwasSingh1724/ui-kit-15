@@ -33,6 +33,7 @@
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.114.6",
     "@react-three/fiber": "^8.17.10",
+    "gsap": "^3.12.5",
     "three": "^0.169.0"
   }
 }
