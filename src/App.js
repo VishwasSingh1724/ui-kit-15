@@ -22,5 +22,6 @@ import RotatingEarth from './components/RotatingEarth.jsx';
 import Donut from './components/Donut.jsx';
 import WaveyImage from './components/WaveyImage.jsx';
 import RubiksCubeScene from './components/RubicsCube.jsx';
+import ImageEffects from './components/ImageEffects.jsx';
 //exporting all the components
-export  {Button ,Scene3D,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert,WaveDeformedPlane,CubeWithMouse,ColorSphere,RotatingEarth,Donut,BouncingBallsScene,WaveyImage,RubiksCubeScene};
+export  {Button ,Scene3D,Modal,Tooltip,Table,DarkModeToggle,LoadingSpinnerWithStyle,SpinningCube,Card,Dropdown,Accordion,Tabs,Input,Badge,Alert,WaveDeformedPlane,CubeWithMouse,ColorSphere,RotatingEarth,Donut,BouncingBallsScene,WaveyImage,RubiksCubeScene,ImageEffects};
