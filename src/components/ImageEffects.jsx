@@ -641,7 +641,7 @@ function ShaderImage({ effect, imageSrc }) {
   );
 }
 
-export default function ImageEffects({ imageSrc, effect = 1 }) {
+const ImageEffects=({ imageSrc, effect = 1 }) =>{
   return (
     <div style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
       <Canvas
@@ -656,3 +656,4 @@ export default function ImageEffects({ imageSrc, effect = 1 }) {
     </div>
   );
 }
+export default ImageEffects
